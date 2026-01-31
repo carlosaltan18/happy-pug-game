@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://cqmpnbf2b3iya"]
+
+[ext_resource type="Script" uid="uid://douq0s5p2h4i" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bnbfavu86p847" path="res://funeraria.jpg" id="1_l6cm7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
+bg_color = Color(0.2702219, 0.27022195, 0.27022177, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.65909123, 0.27607754, 0.27203828, 1)
+
+[node name="MainMenu" type="Control" unique_id=1551775473]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1184366321]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_l6cm7")
+expand_mode = 1
+
+[node name="MenuContainer" type="VBoxContainer" parent="." unique_id=1013471399]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -300.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SpacerTop" type="MarginContainer" parent="MenuContainer" unique_id=1974641199]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="MenuContainer/SpacerTop" unique_id=1963495769]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Start" type="Button" parent="MenuContainer/SpacerTop/ButtonsContainer" unique_id=1761841447]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+text = "Start Game"
+
+[node name="Exit" type="Button" parent="MenuContainer/SpacerTop/ButtonsContainer" unique_id=98836413]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+text = "Exit Game
+"
+
+[node name="Credits" type="Button" parent="MenuContainer/SpacerTop/ButtonsContainer" unique_id=1820126651]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+text = "Credits
+"
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1094360798]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -395.0
+offset_top = 230.0
+offset_right = -158.0
+offset_bottom = 299.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.33720493, 0.28035998, 0.078496106, 1)
+theme_override_font_sizes/font_size = 50
+text = "MaskFace"
+horizontal_alignment = 1
