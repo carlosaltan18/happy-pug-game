@@ -6,6 +6,8 @@ extends Control
 @onready var credits_button = $MenuContainer/SpacerTop/ButtonsContainer/Credits
 
 func _ready():
+	Transition.fade_in()
+	
 	# Conectar las señales de los botones
 	new_game_button.pressed.connect(_on_new_game_pressed)
 	exit_button.pressed.connect(_on_quit_pressed)
@@ -13,6 +15,8 @@ func _ready():
 	
 func _on_new_game_pressed():
 	print("Iniciando nuevo juego...")
+	get_tree().change_scene_to_file("res://scenes/gameplay/main_game.tscn")
+
 	# Aquí cambiarás a la escena del juego
 
 func _on_credits_pressed():
