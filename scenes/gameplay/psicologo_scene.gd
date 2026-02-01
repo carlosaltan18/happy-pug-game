@@ -62,15 +62,34 @@ func _process(_delta):
 
 func load_escena_psicologo():
 	dialogues = [
-		{"character": "Psicólogo", "text": "Dime... ¿cómo te has sentido desde nuestra última sesión?", "is_thought": false},
-		{"character": "Protagonista", "text": "Igual. El silencio en la casa sigue siendo demasiado ruidoso.", "is_thought": false},
-		{"character": "Psicólogo", "text": "Es normal buscar culpables cuando no entendemos el porqué de una pérdida.", "is_thought": false},
-		{"character": "Protagonista", "text": "No busco culpables. Solo quiero que el tiempo se detenga.", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]¿Realmente cree que hablar de esto va a cambiar algo?[/i]", "is_thought": true},
-		{"character": "Protagonista", "text": "[i]Solo está sentado ahí, tomando notas, mientras mi mundo se cae a pedazos.[/i]", "is_thought": true},
-		{"character": "Psicólogo", "text": "La aceptación es un proceso lento. No te presiones.", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]Aceptación... qué palabra tan vacía.[/i]", "is_thought": true},
-		{"character": "Narrador", "text": "[El reloj de la pared marca cada segundo con fuerza]", "is_thought": false}
+		{"character": "Protagonista", "text": "Cuando entré a mi apartamento, ya estaba ahí el psicólogo. Tal parece, mi mamá le dio sus llaves de repuesto.", "is_thought": true},
+		{"character": "Psicólogo", "text": "Hola, mi nombre es Boid. Seré tu psicólogo de aquí en adelante.", "is_thought": false},
+		{"character": "Protagonista", "text": "Claro. ", "is_thought": false},
+		{"character": "Psicólogo", "text": "¿Cómo te sientes el día de hoy?", "is_thought": false},
+		{"character": "Protagonista", "text": "¿Usted cómo cree que me siento?", "is_thought": false},
+		{"character": "Psicólogo", "text": "Pues por eso le pregunto, ¿qué siente?", "is_thought": false},
+		{"character": "Protagonista", "text": "Yo conozco estos trucos, te engañan para decir algo con tal de ellos no quedar mal.", "is_thought": true},
+		{"character": "Protagonista", "text": "No voy a responder eso. Yo no pedí esta ayuda, no la necesito. ", "is_thought": false},
+		{"character": "Psicólogo", "text": "La negación es parte del proceso. Lo primero que tiene que saber, es que nada de lo que pasó fue su culpa, fue un accidente donde usted ni siquiera estaba cerca o podía hacer algo. Todo lo que dice es demasiado cálido para ser real, y demasiado frío para ser empático.", "is_thought": false},
+	{"character": "Protagonista", "text": "No me diga lo que ya sé. Igual, lo que me pasó no tiene solución.", "is_thought": false},
+		{"character": "Psicólogo", "text": "Créame que, con la metodología correcta, todo tiene solución. ", "is_thought": false},
+		{"character": "Protagonista", "text": "Posiblemente, solo siente pena por mí. Pena y hambre, porque se está llevando nuestro dinero como parásito…  ", "is_thought": true},
+		{"character": "Protagonista", "text": "aunque sin él, ya no hay en qué gastarlo, ¿verdad? …", "is_thought": true},
+		{"character": "Psicólogo", "text": "Empezaré la sesión, si así le parece. Es normal que luego de momentos así de traumáticos, existan sentimientos de culpa, ¿ha sentido alguno en la última semana?", "is_thought": false},
+		{"character": "Protagonista", "text": "No.", "is_thought": false},
+		{"character": "Psicólogo", "text": "Claro, continuemos.  ¿Ha sentido disminución en su apetito? ", "is_thought": false},
+		{"character": "Protagonista", "text": "No.", "is_thought": false},
+		{"character": "Psicólogo", "text": "¿Ha sentido que las cosas alrededor suyo no son reales?, o ¿ha notado distintas a las personas que le rodean? ¿sus rostros?", "is_thought": false},
+	{"character": "Protagonista", "text": "¿Me está tomando el pelo?", "is_thought": false},
+		{"character": "Psicólogo", "text": "Absolutamente no. Pero debido a la seriedad del trauma, puede que haya desarrollado algún tipo de trastorno y requiera de mayor ayuda.", "is_thought": false},
+		{"character": "Protagonista", "text": "Ya he dicho que yo NO necesito ayuda. ", "is_thought": false},
+		{"character": "Psicólogo", "text": "Claro… trabajaremos en eso. ¿Cómo se siente en este momento?, ¿sintió mucha presión de estas preguntas?, ¿algún sentimiento encontrado?", "is_thought": false},
+		{"character": "Protagonista", "text": "Una parte de mí quiere llorar, pero otra no la deja…", "is_thought": true},
+	{"character": "Protagonista", "text": "Bueno, creo que sí llegué a sentir que...", "is_thought": false},
+		{"character": "Psicólogo", "text": "Ya se acabó el tiempo, una hora de sesión. Ahora debo de atender a alguien más, ¿le parece bien si quedamos la otra semana a la misma hora?", "is_thought": false},
+		{"character": "Protagonista", "text": "Justo como todos, solo lo hace para quedar bien.", "is_thought": false},
+		{"character": "Protagonista", "text": "Lo que sea.", "is_thought": false},
+		{"character": "Psicólogo", "text": "Mire, le dejo este número por si tiene alguna emergencia emocional. Además, le doy mi propio número, por si me necesita; llegaré lo antes posible. ", "is_thought": false},
 	]
 	current_dialogue_index = 0
 
@@ -174,4 +193,4 @@ func end_escena():
 	show_transition_screen()
 
 func _on_next_scene():
-	Transition.change_scene("res://scenes/main_menu.tscn")
+	Transition.change_scene("res://scenes/gameplay/escena_final.tscn")

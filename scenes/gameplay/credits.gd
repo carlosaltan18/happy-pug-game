@@ -5,8 +5,8 @@ extends Control
 @onready var background = $Background
 @onready var audio_player = $AudioStreamPlayer 
 
-var music_loop_start = 3.0
-var music_loop_end = 50.0
+var music_loop_start = 72.0
+var music_loop_end = 160.0
 # Velocidad de scroll (píxeles por segundo)
 var scroll_speed = 50.0
 
@@ -42,7 +42,7 @@ func load_credits_text():
 	credits_text.text = """
 [center][font_size=72][b]MÁSCARAS DE DUELO[/b][/font_size]
 
-[font_size=28][i]A story by Happy Pug Games[/i][/font_size]
+[font_size=28][i]A game made by Happy Pug Games[/i][/font_size]
 
 
 [font_size=50][b]CRÉDITOS[/b][/font_size]
@@ -51,49 +51,38 @@ func load_credits_text():
 [font_size=42][b]EQUIPO DE DESARROLLO[/b][/font_size]
 
 [font_size=36]Director del Proyecto
-[b]Mateo "Pug Master" Rossi[/b][/font_size]
+[b]Renato Rojas[/b][/font_size]
 
 [font_size=36]Guión y Narrativa
-[b]Elena Valeriano[/b][/font_size]
+[b]Renato Rojas[/b][/font_size]
 
 [font_size=36]Programación
-[b]Julián Scriptman[/b][/font_size]
+[b]Carlos Altán [/b][/font_size]
 
-[font_size=36]Diseño de UI/UX
-[b]Sofía Pixel-Perfect[/b][/font_size]
-
+[font_size=36]Programación
+[b]Hector Dardón [/b][/font_size]
 
 [font_size=42][b]ARTE[/b][/font_size]
 
 [font_size=36]Ilustraciones de Personajes
-[b]Lucía Trazo[/b]
+[b]Melisa Mendizábal[/b]
 
 Fondos y Escenarios
-[b]Carlos Horizonte[/b][/font_size]
+[b]Melisa Mendizábal[/b][/font_size]
 
 
 [font_size=42][b]AUDIO[/b][/font_size]
 
 [font_size=36]Composición Musical
-[b]Damián Melodía[/b]
+[b]Jonathan Tubac (BIRD)[/b]
 
 Diseño de Sonido
-[b]Foley Wizard[/b][/font_size]
-
-
-[font_size=42][b]CONTROL DE CALIDAD[/b][/font_size]
-
-[font_size=36]Beta Testers
-Juan "BugHunter" Pérez
-Ana Demo-Player
-Lucas Glitch-Finder[/font_size]
+[b]Jonathan Tubac (BIRD)[/b][/font_size]
 
 
 [font_size=42][b]AGRADECIMIENTOS ESPECIALES[/b][/font_size]
 
-[font_size=32][i]A nuestra familia por su apoyo incondicional
-A la comunidad de Godot por sus recursos
-A todos los que inspiraron esta historia[/i][/font_size]
+[font_size=32][i]A Diosito, papá Douglas y Don Meyer[/i][/font_size]
 
 
 [font_size=50][b]DESARROLLADO CON[/b][/font_size]
@@ -106,7 +95,6 @@ GDScript[/font_size]
 
 [font_size=32][i]Para todas las personas que enfrentan el duelo
 y buscan encontrar esperanza en la oscuridad[/i][/font_size]
-
 
 
 
