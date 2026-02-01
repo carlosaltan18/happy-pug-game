@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmbloalsfhj22" path="res://scenes/gameplay/credits.gd" id="1_uofio"]
 [ext_resource type="AudioStream" uid="uid://cco055l6jomh8" path="res://assets/musica/GameJamIdeas Edit 1 Export 2.mp3" id="2_vmxsq"]
+[ext_resource type="Texture2D" uid="uid://c6avw76jyi3bm" path="res://assets/personajes/happypuggamesWhite.png" id="3_oghj8"]
 
 [node name="Credits" type="Control" unique_id=1529922777]
 layout_mode = 3
@@ -58,3 +59,8 @@ text = "Saltar ►"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=806912414]
 stream = ExtResource("2_vmxsq")
+
+[node name="HappypuggamesWhite" type="Sprite2D" parent="." unique_id=1031089383]
+position = Vector2(1114, 549)
+scale = Vector2(0.169, 0.157)
+texture = ExtResource("3_oghj8")
