@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqkvr2g8tklbj" path="res://assets/funeraria-gemini.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://cco055l6jomh8" path="res://assets/musica/GameJamIdeas Edit 1 Export 2.mp3" id="3_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://b2oxgd40weir3" path="res://assets/personajes/mascaraDeDuelo.png" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://c6avw76jyi3bm" path="res://assets/personajes/happypuggamesWhite.png" id="5_8ln24"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
 bg_color = Color(0.2702219, 0.27022195, 0.27022177, 1)
@@ -87,3 +88,8 @@ autoplay = true
 position = Vector2(596, 171)
 scale = Vector2(0.29437503, 0.276625)
 texture = ExtResource("4_wu84c")
+
+[node name="HappypuggamesWhite" type="Sprite2D" parent="." unique_id=302146816]
+position = Vector2(83.000015, 564)
+scale = Vector2(0.13862504, 0.13949996)
+texture = ExtResource("5_8ln24")

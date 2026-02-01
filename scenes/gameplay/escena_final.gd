@@ -31,10 +31,10 @@ var sound_effects = {
 # Sprites de personajes
 var character_sprites = {
 	"Protagonista": "res://assets/personajes/lagrima.png",
-	"Protagonista_Rota": "res://assets/personajes/npc.png",
-	"Psicólogo": "res://assets/personajes/psico.png",
-	"Madre": "res://assets/personajes/madre.png",
-	"Vecina": "res://assets/personajes/vecina.png"
+	"Protagonista_Rota": "res://assets/personajes/lagrima.png",
+	"Psicólogo": "res://assets/personajes/psicoNoMascara.png",
+	"Madre": "res://assets/personajes/madreNoMascara.png",
+	"Vecina": "res://assets/personajes/vecainSN.png"
 }
 
 # Colores para cada personaje
@@ -97,13 +97,13 @@ func load_escena_final():
 		{"name": "Protagonista", "text": "Ayuda", "state": "solo_ella"},
 		{"name": "Protagonista", "text": "AYUDA", "state": "solo_ella"},
 		{"name": "Narrador", "text": "[sfx teléfono]", "state": "oscurecer", "sfx": "telefono"},
-		{"name": "Emergencias", "text": "Servicio de emergencia mental y psicológica. ¿Está usted en una emergencia y requiere de ayuda inmediata?", "state": "nadie"},
-		{"name": "Protagonista", "text": "...", "state": "nadie"},
-		{"name": "Emergencias", "text": "¿Hola?, ¿se equivocó de número?", "state": "nadie"},
-		{"name": "Protagonista", "text": "... ... hola. Sí... yo... necesito ayuda.", "state": "nadie"},
-		{"name": "Emergencias", "text": "Hola, me alegra oírte. Claro, con mucho gusto te podemos ayudar; pero antes, ¿hay alguna persona o ser querido que pueda en este momento estar físicamente a tu lado? Eso ayudaría mucho.", "state": "nadie"},
-		{"name": "Protagonista", "text": "...", "state": "nadie"},
-		{"name": "Emergencias", "text": "¿No? Claro, no hay problema-", "state": "nadie"},
+		{"name": "Emergencias", "text": "Servicio de emergencia mental y psicológica. ¿Está usted en una emergencia y requiere de ayuda inmediata?", "state": "solo_ella"},
+		{"name": "Protagonista", "text": "...", "state": "solo_ella"},
+		{"name": "Emergencias", "text": "¿Hola?, ¿se equivocó de número?", "state": "solo_ella"},
+		{"name": "Protagonista", "text": "... ... hola. Sí... yo... necesito ayuda.", "state": "solo_ella"},
+		{"name": "Emergencias", "text": "Hola, me alegra oírte. Claro, con mucho gusto te podemos ayudar; pero antes, ¿hay alguna persona o ser querido que pueda en este momento estar físicamente a tu lado? Eso ayudaría mucho.", "state": "solo_ella"},
+		{"name": "Protagonista", "text": "...", "state": "solo_ella"},
+		{"name": "Emergencias", "text": "¿No? Claro, no hay problema-", "state": "solo_ella"},
 		{"name": "Protagonista", "text": "De hecho, sí, sí lo hay.", "state": "preparar_revelacion"},
 		{"name": "Narrador", "text": "[Se oscurece la pantalla...]", "state": "oscurecer_completo"},
 		{"name": "Protagonista", "text": "De ellos... ninguno de ellos tenía máscara... siempre fui yo.", "state": "revelacion_final"}
