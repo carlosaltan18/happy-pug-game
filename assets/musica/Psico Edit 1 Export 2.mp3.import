@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdalwfo7bphyu"
+path="res://.godot/imported/Psico Edit 1 Export 2.mp3-048ac7f0574aa21bb67f07dc99237bee.mp3str"
+
+[deps]
+
+source_file="res://assets/musica/Psico Edit 1 Export 2.mp3"
+dest_files=["res://.godot/imported/Psico Edit 1 Export 2.mp3-048ac7f0574aa21bb67f07dc99237bee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://bi1lf6uvmnqhp"]
+
+[ext_resource type="Texture2D" uid="uid://bir02jwllvafb" path="res://assets/casa-protagonista.jpg" id="1_egi5y"]
+[ext_resource type="Script" uid="uid://c7ibpkd0tanx0" path="res://scenes/gameplay/escena_final.gd" id="1_jx8tm"]
+[ext_resource type="AudioStream" uid="uid://cco055l6jomh8" path="res://assets/musica/GameJamIdeas Edit 1 Export 2.mp3" id="3_h2q2j"]
+
+[node name="EscenaFinal" type="Control" unique_id=229756130]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jx8tm")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1171506124]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=2083232766]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_egi5y")
+expand_mode = 1
+
+[node name="CharacterContainer" type="Control" parent="." unique_id=1337107736]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lagrima" type="TextureRect" parent="CharacterContainer" unique_id=168126602]
+modulate = Color(0.9098039, 1, 1, 0)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 370.0
+offset_top = 124.0
+offset_right = 470.0
+offset_bottom = 227.33337
+scale = Vector2(0.3, 0.3)
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Psicologo" type="TextureRect" parent="CharacterContainer" unique_id=1325175314]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 653.0
+offset_top = 124.0
+offset_right = 753.0
+offset_bottom = 224.0
+scale = Vector2(0.3, 0.3)
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Mama" type="TextureRect" parent="CharacterContainer" unique_id=757078794]
+modulate = Color(0.9098039, 1, 1, 0)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 505.59998
+offset_top = 133.20001
+offset_right = 605.6
+offset_bottom = 233.20001
+scale = Vector2(0.3, 0.3)
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Vecinita" type="TextureRect" parent="CharacterContainer" unique_id=2101243261]
+modulate = Color(0.9098039, 1, 1, 0)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 862.6
+offset_top = 129.20001
+offset_right = 962.6
+offset_bottom = 229.20001
+scale = Vector2(0.3, 0.3)
+expand_mode = 1
+stretch_mode = 3
+
+[node name="DialogueContainer" type="Control" parent="." unique_id=821191422]
+custom_minimum_size = Vector2(0, 200)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogueBox" type="Panel" parent="DialogueContainer" unique_id=204440516]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="DialogueContainer/DialogueBox" unique_id=989908416]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 174.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "Protagonista"
+
+[node name="DialogueText" type="RichTextLabel" parent="DialogueContainer/DialogueBox" unique_id=1017503598]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 69.0
+offset_right = 1900.0
+offset_bottom = 169.0
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Este es el comienzo de la historia..."
+
+[node name="ContinueButton" type="Button" parent="DialogueContainer/DialogueBox" unique_id=1294407546]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1044.0
+offset_top = 134.0
+offset_right = 1174.0
+offset_bottom = 174.0
+text = "Continuar
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=856654012]
+stream = ExtResource("3_h2q2j")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=571100697]

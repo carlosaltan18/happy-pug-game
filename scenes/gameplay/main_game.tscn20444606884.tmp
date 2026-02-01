@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://6xak5pknscoj"]
+
+[ext_resource type="Script" uid="uid://cypp0i0doxvq1" path="res://scenes/gameplay/main_game.gd" id="1_afi3u"]
+[ext_resource type="Texture2D" uid="uid://bnbfavu86p847" path="res://funeraria.jpg" id="2_ysiqp"]
+
+[node name="MainGame" type="Control" unique_id=829127000]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_afi3u")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1542567265]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1444667625]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ysiqp")
+expand_mode = 1
+
+[node name="CharacterContainer" type="Control" parent="Background" unique_id=1347769490]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lagrima" type="TextureRect" parent="Background/CharacterContainer" unique_id=1394865058]
+modulate = Color(0.9098039, 1, 1, 0)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 556.0
+offset_top = 450.0
+offset_right = 656.0
+offset_bottom = 550.0
+scale = Vector2(0.5, 0.5)
+expand_mode = 1
+stretch_mode = 3
+
+[node name="PersonajeNpc" type="TextureRect" parent="Background/CharacterContainer" unique_id=807682052]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 772.0
+offset_top = 492.0
+offset_right = 872.0
+offset_bottom = 592.0
+scale = Vector2(0.5, 0.5)
+expand_mode = 1
+stretch_mode = 3
+
+[node name="DialogueContainer" type="Control" parent="." unique_id=1744857670]
+custom_minimum_size = Vector2(0, 200)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogueBox" type="Panel" parent="DialogueContainer" unique_id=2126339085]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="DialogueContainer/DialogueBox" unique_id=2081473169]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 174.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 25
+text = "Protagonista"
+
+[node name="DialogueText" type="RichTextLabel" parent="DialogueContainer/DialogueBox" unique_id=635910236]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 52.0
+offset_right = 1898.0
+offset_bottom = 152.0
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Este es el comienzo de la historia..."
+
+[node name="ContinueButton" type="Button" parent="DialogueContainer/DialogueBox" unique_id=880640608]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1044.0
+offset_top = 134.0
+offset_right = 1174.0
+offset_bottom = 174.0
+text = "Continuar
+"
