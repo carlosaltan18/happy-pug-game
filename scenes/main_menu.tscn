@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqmpnbf2b3iya"]
 
 [ext_resource type="Script" uid="uid://douq0s5p2h4i" path="res://scenes/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://bqkvr2g8tklbj" path="res://assets/funeraria-gemini.png" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://bgwqrsixkmwp0" path="res://assets/personajes/funerariacorreccion.png" id="2_8ln24"]
 [ext_resource type="AudioStream" uid="uid://cco055l6jomh8" path="res://assets/musica/GameJamIdeas Edit 1 Export 2.mp3" id="3_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://b2oxgd40weir3" path="res://assets/personajes/mascaraDeDuelo.png" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://c6avw76jyi3bm" path="res://assets/personajes/happypuggamesWhite.png" id="5_8ln24"]
@@ -29,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_bqqt6")
+texture = ExtResource("2_8ln24")
 expand_mode = 1
 
 [node name="MenuContainer" type="VBoxContainer" parent="." unique_id=1013471399]
