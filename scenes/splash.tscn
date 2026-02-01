@@ -31,3 +31,4 @@ autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1566195867]
 stream = ExtResource("3_4rrho")
+volume_db = 10.0
