@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="happy-pug-game"
-run/main_scene="uid://cqmpnbf2b3iya"
+run/main_scene="uid://dcpf08b7rpsl5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

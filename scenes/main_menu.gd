@@ -7,7 +7,7 @@ extends Control
 @onready var audio_player = $AudioStreamPlayer 
 
 var loop_start = 3.0
-var loop_end = 20.0
+var loop_end = 41.0
 func _ready():
 	if audio_player:
 			audio_player.play(loop_start)
