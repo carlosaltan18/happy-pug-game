@@ -60,7 +60,7 @@ func load_credits_text():
 [b]Carlos Altán [/b][/font_size]
 
 [font_size=36]Programación
-[b]Hector Dardón [/b][/font_size]
+[b]Hector Dardón (El de la tanguita) [/b][/font_size]
 
 [font_size=42][b]ARTE[/b][/font_size]
 

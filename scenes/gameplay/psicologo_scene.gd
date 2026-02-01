@@ -92,7 +92,7 @@ func load_escena_psicologo():
 	{"character": "Psicólogo", "text": "¿Le parece bien si quedamos\nla otra semana a la misma hora?", "is_thought": false},
 	{"character": "Protagonista", "text": "Justo como todos,\nsolo lo hace para quedar bien.", "is_thought": false},
 	{"character": "Protagonista", "text": "Lo que sea.", "is_thought": false},
-	{"character": "Psicólogo", "text": "Mire, le dejo este número por si tiene una emergencia.\nLlegaré lo antes posible si me necesita.", "is_thought": false},
+	{"character": "Psicólogo", "text": "Mire, le dejo este número por si tiene una emergencia emocional.\nAdemás, le doy mi propio número; por si me necesita, llegaré lo antes posible.", "is_thought": false},
 ]
 	current_dialogue_index = 0
 

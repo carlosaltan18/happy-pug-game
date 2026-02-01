@@ -80,7 +80,7 @@ func load_escena_vecina():
 	{"character": "Vecina", "text": "Por cierto, te quería decir algo. ¡Ve el lado positivo en esto! No estás sola.\nNosotros también estamos sintiendo tu mismo dolor,\nmi pequeño Josh perdió a su mejor amigo. Compartimos tu luto.", "is_thought": false},
 	{"character": "Protagonista", "text": "Claro… porque que se muera el amigo de tu hijo\ntiene el mismo grado que se muera tu hijo.", "is_thought": true},
 	{"character": "Protagonista", "text": "Si me disculpas, tengo que volver a mi apartamento.\nTengo mi primera terapia.", "is_thought": false},
-	{"character": "Vecina", "text": "Esas son buenas noticias, ¡me alegro por ti!", "is_thought": false},
+	{"character": "Vecina", "text": "Esas son buenas noticias, ¡me alegro por ti! Ya sabes que siempre estoy aquí al lado para lo que sea que necesites.", "is_thought": false},
 	{"character": "Protagonista", "text": "Yo no.", "is_thought": true}
 ]
 

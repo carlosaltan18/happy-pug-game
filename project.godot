@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="happy-pug-game"
+config/name="Máscara de Duelo"
+config/description="Novela visual que retrata el proceso de sobrellevar el luto, así como aprender a pedir ayuda ante situaciones difíciles de la vida.
+"
 run/main_scene="uid://enkhcsrhu481"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://b2oxgd40weir3"
 
 [autoload]
 

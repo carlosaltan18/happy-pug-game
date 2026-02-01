@@ -53,18 +53,40 @@ func _ready():
 
 func load_prologo():
 	dialogues = [
-		{"character": "Mamá", "text": "Hija... el taxi está afuera. Es hora de irnos.", "is_thought": false},
-		{"character": "Protagonista", "text": "Un momento más, por favor.", "is_thought": false},
-		{"character": "Mamá", "text": "Cariño, quedarnos aquí no lo traerá de vuelta. Necesitas descansar.", "is_thought": false},
-		{"character": "Protagonista", "text": "...Lo sé.", "is_thought": false},
-		{"character": "Narrador", "text": "[Caminan hacia la salida]", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]Siento un vacío que me quema el pecho.[/i]", "is_thought": true},
-		{"character": "Protagonista", "text": "[i]¿Cómo puede el mundo seguir girando como si nada hubiera pasado?[/i]", "is_thought": true},
-		{"character": "Protagonista", "text": "[i]Todas esas personas con sus flores y sus caras de lástima...[/i]", "is_thought": true},
-		{"character": "Protagonista", "text": "[i]No entienden nada.[/i]", "is_thought": true},
-		{"character": "Protagonista", "text": "[i]...[/i]", "is_thought": true},
-		{"character": "Protagonista", "text": "[i]Adiós, pequeño mío.[/i]", "is_thought": true}
-	]
+	{"character": "Narrador", "text": "Ya pasó una semana… Siento como si hubiera sido hace un momento,\nhace un instante… Hace un instante estabas conmigo…", "is_thought": false},
+	{"character": "Narrador", "text": "Mi madre dijo que quería hablar conmigo,\nasí que fui a su casa.", "is_thought": false},
+	{"character": "Mamá", "text": "¡Hija! Cielo,\n¿cómo estás?", "is_thought": false},
+	{"character": "Protagonista", "text": "Sigo viva.", "is_thought": false},
+	{"character": "Mamá", "text": "¿Estás comiendo bien?", "is_thought": false},
+	{"character": "Protagonista", "text": "Sí, mamá. Igual que cuando era niña,\ncomiendo solo 2 veces por semana.", "is_thought": true},
+	{"character": "Protagonista", "text": "Sí.", "is_thought": false},
+	{"character": "Mamá", "text": "¿Has conseguido dormir?\n¿Cómo te va con eso?", "is_thought": false},
+	{"character": "Protagonista", "text": "Pues… cada vez que lo intento, por un momento está bien;\npero luego vienen las pesadillas, y ya no puedo conciliar el sueño.", "is_thought": false},
+	{"character": "Mamá", "text": "Oh, lo siento tanto cielo. Aún recuerdo las pesadillas\nque me contabas cuando eras una niña apenas...", "is_thought": false},
+	{"character": "Mamá", "text": "Tú sabes que la vida es un momento, mira por ejemplo mi amiga Julia,\nen un día comíamos un pie, y al día siguiente ya había muerto.", "is_thought": false},
+	{"character": "Protagonista", "text": "Julia tenía 77 años. Además, ya estaba enferma de hace años.\nPero cada vez que le menciono eso a mi mamá, se enoja.", "is_thought": true},
+	{"character": "Protagonista", "text": "Mamá, ¿podemos no hablar de esto?", "is_thought": false},
+	{"character": "Mamá", "text": "Está bien, hija.\nPor cierto, tu hermano llamó. Me hizo tan feliz.", "is_thought": false},
+	{"character": "Protagonista", "text": "¿Dijo por qué no llegó al velorio?", "is_thought": false},
+	{"character": "Mamá", "text": "¡Hija! Ya sabes que tu hermano trabaja mucho,\nademás vive en otro país, ¡no puede viajar así como si nada!", "is_thought": false},
+	{"character": "Protagonista", "text": "Tú sabes que sí lo ha hecho ya en otras veces.", "is_thought": false},
+	{"character": "Mamá", "text": "Pero por el cumpleaños de su suegra.\nSuegra solo hay una en la vida.", "is_thought": false},
+	{"character": "Protagonista", "text": "También era su único sobrino…", "is_thought": false},
+	{"character": "Mamá", "text": "Bueno, qué importa ya. Llamó porque dice qué te quiere pagar un psicólogo.\nDicen que esas cosas ayudan.", "is_thought": false},
+	{"character": "Protagonista", "text": "No gracias, mamá. Estoy bien.\nNo necesito eso.", "is_thought": false},
+	{"character": "Mamá", "text": "Tú sabes que yo tampoco creo en eso hija,\npero tal vez algo te puede ayudar.", "is_thought": false},
+	{"character": "Protagonista", "text": "¡Mamá! Esto no es como ir a un doctor; no me pueden dar una medicina...\nEsta sensación, este sufrimiento, no sé si me lo pueda arrancar algún día…", "is_thought": false},
+	{"character": "Mamá", "text": "Lo siento tanto, hija. Supongo que es cierto, vivir más que un hijo…\nqué tragedia. No puedo ni siquiera pensar cómo estaría yo si tu hermano o tú…", "is_thought": false},
+	{"character": "Mamá", "text": "Oh, lo siento. No quería.", "is_thought": false},
+	{"character": "Protagonista", "text": "Nunca quieres mamá,\npero siempre lo haces.", "is_thought": true},
+	{"character": "Mamá", "text": "En fin, lo que te quería decir: hoy empiezan tus terapias.\nEl psicólogo llegará hoy a tu apartamento.", "is_thought": false},
+	{"character": "Protagonista", "text": "¡¿Qué?! ¡Ni siquiera me preguntaste!", "is_thought": false},
+	{"character": "Mamá", "text": "Llevabas una semana sin salir de tu casa, ¡ya me había preocupado!\nAhora ya vete, que llegarás tarde con él.", "is_thought": false},
+	{"character": "Mamá", "text": "Una buena señorita nunca puede quedar mal.\nY si necesitas algo, solo llámame, llegaré enseguida.", "is_thought": false},
+	{"character": "Protagonista", "text": "Como siempre, mamá…\nDecidiendo por mí.", "is_thought": true},
+	{"character": "Protagonista", "text": "Mi mamá nunca fue tan cercana a mí.\nPasaba tanto tiempo en el trabajo que apenas si lo compartía con nosotros…", "is_thought": true},
+	{"character": "Protagonista", "text": "Yo quise estar más para mi hijo, pero…\nahora solo ya no está.", "is_thought": true}
+]
 	current_dialogue_index = 0
 
 # --- PANTALLAS DE TÍTULO ---
