@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://doqifui5o18x1"]
+
+[ext_resource type="Script" uid="uid://22ewafbwft2d" path="res://scripts/dialogue_box.gd" id="1_xg44k"]
+
+[node name="DialogueBox" type="CanvasLayer" unique_id=851813350]
+script = ExtResource("1_xg44k")
+
+[node name="Panel" type="Panel" parent="." unique_id=756461599]
+offset_right = 1200.0
+offset_bottom = 320.0
+
+[node name="Name" type="Label" parent="Panel" unique_id=977684449]
+layout_mode = 0
+offset_right = 126.0
+offset_bottom = 59.0
+text = "Lagrima"
+uppercase = true
+language = "es"
+
+[node name="TextLabel" type="RichTextLabel" parent="Panel" unique_id=667801073]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 86.0
+offset_right = 1135.0
+offset_bottom = 261.0
+text = "lorem ipsum"
+fit_content = true
+language = "es"
+
+[node name="ContinueHint" type="Label" parent="." unique_id=227465664]
+offset_left = 1042.0
+offset_top = 281.0
+offset_right = 1173.0
+offset_bottom = 304.0
+text = "Presiona espacio"

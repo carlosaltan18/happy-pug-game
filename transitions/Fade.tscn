@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://eim6cnwrs16f"]
+
+[ext_resource type="Script" uid="uid://dbsg0ucrqro18" path="res://scripts/fade.gd" id="1_2w85q"]
+[ext_resource type="AudioStream" uid="uid://dhf66ok3qhuas" path="res://assets/audio/sfx/opening-door-450444.mp3" id="2_16ux0"]
+
+[node name="Fade" type="CanvasLayer" unique_id=1049283738]
+script = ExtResource("1_2w85q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1674478629]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -596.0
+offset_top = -315.0
+offset_right = -596.0
+offset_bottom = -315.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1162, -232)
+color = Color(0, 0, 0, 1)
+
+[node name="SfxDoor" type="AudioStreamPlayer2D" parent="." unique_id=1533831295]
+stream = ExtResource("2_16ux0")

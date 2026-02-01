@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c4yeod0lk5gbk"]
+
+[ext_resource type="Texture2D" uid="uid://d282hd3hopb2b" path="res://assets/backgrounds/funeral.jpg" id="1_d0u1b"]
+[ext_resource type="Script" uid="uid://crnkpvwyao4y1" path="res://scripts/narrative_scene.gd" id="1_q6m5p"]
+[ext_resource type="Script" uid="uid://ock2ls37x6kd" path="res://scripts/player.gd" id="2_2arbh"]
+[ext_resource type="Texture2D" uid="uid://b2bsdx34jtj6e" path="res://assets/characters/lagrima.png" id="2_86tbl"]
+[ext_resource type="AudioStream" uid="uid://djcc7yuteujdu" path="res://assets/audio/sfx/concrete-footsteps-6752.mp3" id="4_q6m5p"]
+[ext_resource type="Script" uid="uid://bmlgnxle5fcs0" path="res://scripts/npc.gd" id="5_68uq7"]
+[ext_resource type="Script" uid="uid://csanwbblhv15r" path="res://scripts/door.gd" id="6_ibs5a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smu82"]
+size = Vector2(115, 190.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bljes"]
+size = Vector2(13.800001, 5.8653836)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8kcl"]
+size = Vector2(17, 216)
+
+[node name="Funeral" type="Node2D" unique_id=513813912]
+script = ExtResource("1_q6m5p")
+auto_thoughts = ["Nadie me entiende"]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1032913023]
+position = Vector2(0, -175)
+texture = ExtResource("1_d0u1b")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=30071799]
+position = Vector2(43, -118)
+script = ExtResource("2_2arbh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1173827105]
+position = Vector2(-191, 20)
+scale = Vector2(0.207, 0.194)
+texture = ExtResource("2_86tbl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1641223692]
+position = Vector2(-199.5, 17.75)
+shape = SubResource("RectangleShape2D_smu82")
+
+[node name="FsxFootsteps" type="AudioStreamPlayer2D" parent="Player" unique_id=356352766]
+position = Vector2(-43, 118)
+stream = ExtResource("4_q6m5p")
+parameters/looping = false
+
+[node name="InteractionArea" type="Area2D" parent="Player" unique_id=1765908569]
+position = Vector2(-41, 119)
+scale = Vector2(10, 10.4)
+collision_layer = 2
+collision_mask = 32
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/InteractionArea" unique_id=1280378148]
+position = Vector2(-15.5, -9.85577)
+shape = SubResource("RectangleShape2D_bljes")
+
+[node name="NPC" type="Node2D" parent="." unique_id=1910934866 groups=["Interactable"]]
+position = Vector2(114, -5)
+script = ExtResource("5_68uq7")
+
+[node name="Door" type="Area2D" parent="." unique_id=1337062761 groups=["Interactable"]]
+position = Vector2(247, -5)
+script = ExtResource("6_ibs5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1308903907]
+position = Vector2(-5.5, -103)
+shape = SubResource("RectangleShape2D_e8kcl")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1816068575]

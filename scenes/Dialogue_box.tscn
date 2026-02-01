@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cw2s27ow4qsy1"]
+
+[node name="DialogueBox" type="Control" unique_id=210989413]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="." unique_id=170929225]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=1431705825]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=160332032]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1391611528]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

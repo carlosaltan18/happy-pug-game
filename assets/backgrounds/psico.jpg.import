@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnbfavu86p847"
-path="res://.godot/imported/funeraria.jpg-60fb751b703b91156d4ace82d325e400.ctex"
+uid="uid://ipjrhayv1lgq"
+path="res://.godot/imported/psico.jpg-80e8a6785b76ba800e8f56554385a8f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://funeraria.jpg"
-dest_files=["res://.godot/imported/funeraria.jpg-60fb751b703b91156d4ace82d325e400.ctex"]
+source_file="res://assets/backgrounds/psico.jpg"
+dest_files=["res://.godot/imported/psico.jpg-80e8a6785b76ba800e8f56554385a8f7.ctex"]
 
 [params]
 

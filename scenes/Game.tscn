@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cohjn7db3bg0t"]
+
+[node name="Game" type="Node2D" unique_id=904859019]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1385409678]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1637365811]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=451098485]
