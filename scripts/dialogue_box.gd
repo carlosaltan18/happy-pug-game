@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var name_label: Label = $Panel/NameLabel
+@onready var name_label: Label = $Panel/Name
 @onready var text_label: RichTextLabel = $Panel/TextLabel
 
 var dialogue_lines: Array = []
@@ -23,8 +23,17 @@ func show_current_line():
 		return
 
 	var line = dialogue_lines[current_index]
-	name_label.text = line["name"]
-	text_label.text = line["text"]
+
+	# Caso 1: línea como Dictionary (NPCs)
+	if line is Dictionary:
+		name_label.text = line.get("name", "")
+		text_label.text = line.get("text", "")
+	
+	# Caso 2: línea como String (pensamientos simples)
+	elif line is String:
+		name_label.text = "Pensamientos"
+		text_label.text = line
+
 
 func _input(event):
 	if not is_active:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1f5jmty47yfs"
-path="res://.godot/imported/psicoNoMascara.png-9cdd65a41bf4d0f9fb6bd7ef4b352728.ctex"
+uid="uid://dmpy3jjw8q585"
+path="res://.godot/imported/npc.png-6f9d69da0d3c2406d39b7add7f33cdce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/personajes/psicoNoMascara.png"
-dest_files=["res://.godot/imported/psicoNoMascara.png-9cdd65a41bf4d0f9fb6bd7ef4b352728.ctex"]
+source_file="res://assets/characters/npc.png"
+dest_files=["res://.godot/imported/npc.png-6f9d69da0d3c2406d39b7add7f33cdce.ctex"]
 
 [params]
 

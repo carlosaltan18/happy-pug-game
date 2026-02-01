@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 @export_file("*.tscn") var next_scene
 

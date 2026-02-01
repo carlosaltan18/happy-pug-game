@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://cohjn7db3bg0t"]
 
-[node name="Game" type="Node2D" unique_id=904859019]
+[ext_resource type="Script" uid="uid://c8o0r78qb3e1c" path="res://scripts/game.gd" id="1_ibkli"]
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1385409678]
+[node name="Game" type="Node2D" unique_id=904859019]
+script = ExtResource("1_ibkli")
+start_scene = "uid://c4yeod0lk5gbk"
+
+[node name="CurrentScene" type="Node2D" parent="." unique_id=1385409678]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1637365811]
 

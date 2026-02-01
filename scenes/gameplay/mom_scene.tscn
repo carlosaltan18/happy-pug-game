@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cjbgq32vmtf7l"]
 
-[ext_resource type="Texture2D" uid="uid://b4tfmtmlfobl" path="res://assets/casa-mom.jpg" id="1_77t2b"]
+[ext_resource type="Texture2D" uid="uid://b4tfmtmlfobl" path="res://a_normal/casa-mom.jpg" id="1_77t2b"]
 [ext_resource type="Script" uid="uid://bqla03o7ly7fw" path="res://scenes/gameplay/mom_scene.gd" id="1_opins"]
-[ext_resource type="AudioStream" uid="uid://b3guvqsefa8er" path="res://assets/musica/Vecina Edit 1 Export 1.mp3" id="3_opins"]
+[ext_resource type="AudioStream" uid="uid://b3guvqsefa8er" path="res://a_normal/musica/Vecina Edit 1 Export 1.mp3" id="3_opins"]
 
 [node name="MomScene" type="Control" unique_id=1879407756]
 layout_mode = 3

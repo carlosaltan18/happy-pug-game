@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c84dago3aiccg"]
 
 [ext_resource type="Script" uid="uid://cygt6jvmv7aa8" path="res://scenes/gameplay/psicologo_scene.gd" id="1_60ycr"]
-[ext_resource type="Texture2D" uid="uid://bir02jwllvafb" path="res://assets/casa-protagonista.jpg" id="1_v3vur"]
-[ext_resource type="AudioStream" uid="uid://cdalwfo7bphyu" path="res://assets/musica/Psico Edit 1 Export 2.mp3" id="2_i3sio"]
+[ext_resource type="Texture2D" uid="uid://bir02jwllvafb" path="res://a_normal/casa-protagonista.jpg" id="1_v3vur"]
+[ext_resource type="AudioStream" uid="uid://cdalwfo7bphyu" path="res://a_normal/musica/Psico Edit 1 Export 2.mp3" id="2_i3sio"]
 
 [node name="PsicologoScene" type="Control" unique_id=208685057]
 layout_mode = 3

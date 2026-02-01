@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bi1lf6uvmnqhp"]
 
-[ext_resource type="Texture2D" uid="uid://bir02jwllvafb" path="res://assets/casa-protagonista.jpg" id="1_egi5y"]
+[ext_resource type="Texture2D" uid="uid://bir02jwllvafb" path="res://a_normal/casa-protagonista.jpg" id="1_egi5y"]
 [ext_resource type="Script" uid="uid://c7ibpkd0tanx0" path="res://scenes/gameplay/escena_final.gd" id="1_jx8tm"]
-[ext_resource type="AudioStream" uid="uid://cco055l6jomh8" path="res://assets/musica/GameJamIdeas Edit 1 Export 2.mp3" id="3_h2q2j"]
+[ext_resource type="AudioStream" uid="uid://cco055l6jomh8" path="res://a_normal/musica/GameJamIdeas Edit 1 Export 2.mp3" id="3_h2q2j"]
 
 [node name="EscenaFinal" type="Control" unique_id=229756130]
 layout_mode = 3

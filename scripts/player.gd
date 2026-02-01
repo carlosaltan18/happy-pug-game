@@ -2,7 +2,7 @@ extends CharacterBody2D
 #export makes it editable in ui
 @export var speed: float = 200.0
 #onready makes it true when added to scenetree
-@onready var footsteps: AudioStreamPlayer = $Footsteps
+@onready var footsteps: AudioStreamPlayer2D = $Footsteps
 
 var can_move: bool = true
 #movement
@@ -34,9 +34,11 @@ func stop_footsteps():
 var current_interactable: Node = null
 
 func _ready():
+	DialogueManager.player_ref = self
 	interaction_area.body_entered.connect(_on_body_entered)
 	interaction_area.body_exited.connect(_on_body_exited)
-	DialogueManager.player_ref = self
+	
+	
 
 func _on_body_entered(body):
 	if body.is_in_group("interactable"):
