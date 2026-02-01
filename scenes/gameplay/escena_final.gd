@@ -250,4 +250,4 @@ func _on_next_scene():
 	await tween.finished
 	
 	# Ir a créditos
-	Transition.change_scene("res://scenes/gameplay/credits.tscn")
+	Transition.change_scene("res://scenes/gameplay/BrokenMask.tscn")
