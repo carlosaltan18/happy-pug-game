@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6xak5pknscoj"]
 
 [ext_resource type="Script" uid="uid://cypp0i0doxvq1" path="res://scenes/gameplay/main_game.gd" id="1_afi3u"]
-[ext_resource type="Texture2D" uid="uid://bnbfavu86p847" path="res://funeraria.jpg" id="2_ysiqp"]
+[ext_resource type="Texture2D" uid="uid://bqkvr2g8tklbj" path="res://assets/funeraria-gemini.png" id="2_i6iuv"]
 [ext_resource type="AudioStream" uid="uid://cco055l6jomh8" path="res://assets/musica/GameJamIdeas Edit 1 Export 2.mp3" id="3_i6iuv"]
 
 [node name="MainGame" type="Control" unique_id=829127000]
@@ -29,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ysiqp")
+texture = ExtResource("2_i6iuv")
 expand_mode = 1
 
 [node name="CharacterContainer" type="Control" parent="." unique_id=1347769490]
@@ -46,9 +46,9 @@ grow_vertical = 2
 modulate = Color(0.9098039, 1, 1, 0)
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 757.0
+offset_left = 691.0
 offset_top = 124.0
-offset_right = 857.0
+offset_right = 791.0
 offset_bottom = 224.0
 scale = Vector2(0.3, 0.3)
 expand_mode = 1
@@ -58,9 +58,9 @@ stretch_mode = 3
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 932.00006
+offset_left = 925.00006
 offset_top = 116.0
-offset_right = 1032.0
+offset_right = 1025.0
 offset_bottom = 216.0
 scale = Vector2(0.3, 0.3)
 mouse_filter = 2

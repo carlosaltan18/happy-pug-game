@@ -7,21 +7,22 @@ extends Control
 
 # Referencias a los personajes
 @onready var left_character = $CharacterContainer/Lagrima
-@onready var right_character = $CharacterContainer/PersonajeNpc
+@onready var right_character = $CharacterContainer/Psicologo
 
-# Referencia al Audio
 @onready var audio_player = $AudioStreamPlayer 
-var loop_start = 3.0
-var loop_end = 50.0
 
 # Variables del sistema de diálogos
 var current_dialogue_index = 0
 var dialogues = []
 
+# Variables de control de audio (Inicia en 5s y loopea hasta los 10s)
+var music_loop_start = 3.0
+var music_loop_end = 29.0
+
 # Colores para cada personaje
 var character_colors = {
 	"Protagonista": Color(1.0, 0.8, 0.6),
-	"Desconocida": Color(0.8, 0.8, 0.8),
+	"Psicólogo": Color(0.6, 0.8, 1.0), # Color azul profesional
 	"Narrador": Color(0.5, 0.5, 0.5),
 	"Pensamiento": Color(0.7, 0.7, 1.0)
 }
@@ -29,43 +30,47 @@ var character_colors = {
 # Sprites de personajes
 var character_sprites = {
 	"Protagonista": "res://assets/personajes/lagrima.png",
-	"Desconocida": "res://assets/personajes/npc.png"
+	"Psicólogo": "res://assets/personajes/psico.png" # Asegúrate de que esta ruta sea correcta
 }
 
 # Posiciones de personajes
 var character_positions = {
 	"Protagonista": "left",
-	"Desconocida": "right"
+	"Psicólogo": "right"
 }
 
 func _ready():
-	# 1. Iniciar audio en el segundo 5
+	# Iniciar audio en el segundo inicial del bucle
 	if audio_player:
-		audio_player.play(loop_start)
-	
+		audio_player.play(music_loop_start)
+		
 	Transition.fade_in()
 	continue_button.pressed.connect(_on_continue_pressed)
 	
-	# Ocultar personajes al inicio
+	# Estado inicial invisible
 	left_character.modulate.a = 0
 	right_character.modulate.a = 0
 	
-	load_prologo()
-	show_intro_screen() # Inicia con el título
+	load_escena_psicologo()
+	show_intro_screen()
 
-func load_prologo():
+func _process(_delta):
+	# Gestión del Loop de música (5s a 10s)
+	if audio_player and audio_player.playing:
+		if audio_player.get_playback_position() >= music_loop_end:
+			audio_player.seek(music_loop_start)
+
+func load_escena_psicologo():
 	dialogues = [
-		{"character": "Desconocida", "text": "Querida, lamento mucho la pérdida de tu hijo. Era un niño tan dulce.", "is_thought": false},
-		{"character": "Protagonista", "text": "Gracias.", "is_thought": false},
-		{"character": "Desconocida", "text": "Si hay algo que podamos hacer para mejorar la situación, no dude en decirnos.", "is_thought": false},
-		{"character": "Protagonista", "text": "...Claro.", "is_thought": false},
-		{"character": "Narrador", "text": "[Se van]", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]Esos fueron los últimos en irse.[/i]", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]Todas estas personas tan falsas... me dan asco.[/i]", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]Detesto la forma en la que me miran, cómo me juzgan: \"ella es la pobre madre que está enterrando a su hijo\".[/i]", "is_thought": true},
-		{"character": "Protagonista", "text": "[i]La mitad ni siquiera lo conocían.[/i]", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]...[/i]", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]Debo ya regresar a casa, no he dormido en los últimos días.[/i]", "is_thought": false}
+		{"character": "Psicólogo", "text": "Dime... ¿cómo te has sentido desde nuestra última sesión?", "is_thought": false},
+		{"character": "Protagonista", "text": "Igual. El silencio en la casa sigue siendo demasiado ruidoso.", "is_thought": false},
+		{"character": "Psicólogo", "text": "Es normal buscar culpables cuando no entendemos el porqué de una pérdida.", "is_thought": false},
+		{"character": "Protagonista", "text": "No busco culpables. Solo quiero que el tiempo se detenga.", "is_thought": false},
+		{"character": "Protagonista", "text": "[i]¿Realmente cree que hablar de esto va a cambiar algo?[/i]", "is_thought": true},
+		{"character": "Protagonista", "text": "[i]Solo está sentado ahí, tomando notas, mientras mi mundo se cae a pedazos.[/i]", "is_thought": true},
+		{"character": "Psicólogo", "text": "La aceptación es un proceso lento. No te presiones.", "is_thought": false},
+		{"character": "Protagonista", "text": "[i]Aceptación... qué palabra tan vacía.[/i]", "is_thought": true},
+		{"character": "Narrador", "text": "[El reloj de la pared marca cada segundo con fuerza]", "is_thought": false}
 	]
 	current_dialogue_index = 0
 
@@ -73,7 +78,7 @@ func load_prologo():
 
 func show_intro_screen():
 	name_label.text = ""
-	dialogue_text.text = "[center][i]Inicio del Prólogo[/i]\nMáscaras de Duelo"
+	dialogue_text.text = "[center][i]Capítulo 3[/i]\nEl Peso de las Palabras"
 	continue_button.text = "Empezar"
 	if continue_button.pressed.is_connected(_on_continue_pressed):
 		continue_button.pressed.disconnect(_on_continue_pressed)
@@ -85,11 +90,19 @@ func _start_dialogue():
 	continue_button.pressed.connect(_on_continue_pressed)
 	show_current_dialogue()
 
+func show_transition_screen():
+	hide_all_characters()
+	dialogue_text.text = "[center][i]Fin de la Sesión[/i]\nMáscaras de Duelo"
+	name_label.text = ""
+	continue_button.text = "Continuar"
+	continue_button.pressed.disconnect(_on_continue_pressed)
+	continue_button.pressed.connect(_on_next_scene)
+
 # --- LÓGICA DE DIÁLOGO ---
 
 func show_current_dialogue():
 	if current_dialogue_index >= dialogues.size():
-		end_prologo()
+		end_escena()
 		return
 	var current = dialogues[current_dialogue_index]
 	show_dialogue(current["character"], current["text"], current["is_thought"])
@@ -116,9 +129,9 @@ func update_character_sprites(character_name: String, is_thought: bool):
 	if character_name == "Narrador":
 		return
 
-	# AISLAMIENTO: Si es pensamiento, ocultar a la desconocida y mostrar solo a la protagonista
+	# Lógica de Pensamiento: La protagonista se queda sola
 	if is_thought:
-		hide_character(right_character)
+		hide_character(right_character) # Oculta al Psicólogo
 		show_character(left_character)
 		return
 	
@@ -157,23 +170,8 @@ func _on_continue_pressed():
 	current_dialogue_index += 1
 	show_current_dialogue()
 
-func end_prologo():
-	hide_all_characters()
+func end_escena():
 	show_transition_screen()
 
-func show_transition_screen():
-	dialogue_text.text = "[center][i]Fin del Prólogo[/i]\nMáscaras de Duelo"
-	name_label.text = ""
-	continue_button.text = "Siguiente escena"
-	continue_button.pressed.disconnect(_on_continue_pressed)
-	continue_button.pressed.connect(_on_next_scene)
-
 func _on_next_scene():
-	Transition.change_scene("res://scenes/gameplay/mom_scene.tscn")
-	
-func _process(_delta):
-	# 2. Monitorear la posición para crear el bucle
-	if audio_player and audio_player.playing:
-		# Si la canción llega al segundo 10, vuelve al segundo 5
-		if audio_player.get_playback_position() >= loop_end:
-			audio_player.seek(loop_start)
+	Transition.change_scene("res://scenes/main_menu.tscn")

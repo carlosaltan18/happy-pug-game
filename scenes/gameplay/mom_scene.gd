@@ -7,11 +7,10 @@ extends Control
 
 # Referencias a los personajes
 @onready var left_character = $CharacterContainer/Lagrima
-@onready var right_character = $CharacterContainer/PersonajeNpc
+@onready var right_character = $CharacterContainer/Madre
 
-# Referencia al Audio
 @onready var audio_player = $AudioStreamPlayer 
-var loop_start = 3.0
+var loop_start = 4.0
 var loop_end = 50.0
 
 # Variables del sistema de diálogos
@@ -21,7 +20,7 @@ var dialogues = []
 # Colores para cada personaje
 var character_colors = {
 	"Protagonista": Color(1.0, 0.8, 0.6),
-	"Desconocida": Color(0.8, 0.8, 0.8),
+	"Mamá": Color(1.0, 0.7, 0.7),
 	"Narrador": Color(0.5, 0.5, 0.5),
 	"Pensamiento": Color(0.7, 0.7, 1.0)
 }
@@ -29,43 +28,42 @@ var character_colors = {
 # Sprites de personajes
 var character_sprites = {
 	"Protagonista": "res://assets/personajes/lagrima.png",
-	"Desconocida": "res://assets/personajes/npc.png"
+	"Mamá": "res://assets/personajes/madre.png"
 }
 
 # Posiciones de personajes
 var character_positions = {
 	"Protagonista": "left",
-	"Desconocida": "right"
+	"Mamá": "right"
 }
 
 func _ready():
-	# 1. Iniciar audio en el segundo 5
 	if audio_player:
 		audio_player.play(loop_start)
-	
 	Transition.fade_in()
 	continue_button.pressed.connect(_on_continue_pressed)
 	
-	# Ocultar personajes al inicio
+	# Estado inicial invisible
 	left_character.modulate.a = 0
 	right_character.modulate.a = 0
 	
 	load_prologo()
-	show_intro_screen() # Inicia con el título
+	# Iniciamos con la pantalla de título en lugar del diálogo directo
+	show_intro_screen()
 
 func load_prologo():
 	dialogues = [
-		{"character": "Desconocida", "text": "Querida, lamento mucho la pérdida de tu hijo. Era un niño tan dulce.", "is_thought": false},
-		{"character": "Protagonista", "text": "Gracias.", "is_thought": false},
-		{"character": "Desconocida", "text": "Si hay algo que podamos hacer para mejorar la situación, no dude en decirnos.", "is_thought": false},
-		{"character": "Protagonista", "text": "...Claro.", "is_thought": false},
-		{"character": "Narrador", "text": "[Se van]", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]Esos fueron los últimos en irse.[/i]", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]Todas estas personas tan falsas... me dan asco.[/i]", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]Detesto la forma en la que me miran, cómo me juzgan: \"ella es la pobre madre que está enterrando a su hijo\".[/i]", "is_thought": true},
-		{"character": "Protagonista", "text": "[i]La mitad ni siquiera lo conocían.[/i]", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]...[/i]", "is_thought": false},
-		{"character": "Protagonista", "text": "[i]Debo ya regresar a casa, no he dormido en los últimos días.[/i]", "is_thought": false}
+		{"character": "Mamá", "text": "Hija... el taxi está afuera. Es hora de irnos.", "is_thought": false},
+		{"character": "Protagonista", "text": "Un momento más, por favor.", "is_thought": false},
+		{"character": "Mamá", "text": "Cariño, quedarnos aquí no lo traerá de vuelta. Necesitas descansar.", "is_thought": false},
+		{"character": "Protagonista", "text": "...Lo sé.", "is_thought": false},
+		{"character": "Narrador", "text": "[Caminan hacia la salida]", "is_thought": false},
+		{"character": "Protagonista", "text": "[i]Siento un vacío que me quema el pecho.[/i]", "is_thought": true},
+		{"character": "Protagonista", "text": "[i]¿Cómo puede el mundo seguir girando como si nada hubiera pasado?[/i]", "is_thought": true},
+		{"character": "Protagonista", "text": "[i]Todas esas personas con sus flores y sus caras de lástima...[/i]", "is_thought": true},
+		{"character": "Protagonista", "text": "[i]No entienden nada.[/i]", "is_thought": true},
+		{"character": "Protagonista", "text": "[i]...[/i]", "is_thought": true},
+		{"character": "Protagonista", "text": "[i]Adiós, pequeño mío.[/i]", "is_thought": true}
 	]
 	current_dialogue_index = 0
 
@@ -73,17 +71,27 @@ func load_prologo():
 
 func show_intro_screen():
 	name_label.text = ""
-	dialogue_text.text = "[center][i]Inicio del Prólogo[/i]\nMáscaras de Duelo"
+	dialogue_text.text = "[center][i]Inicio Capítulo 1[/i]\nAmor de Madre"
 	continue_button.text = "Empezar"
+	# Cambiamos la conexión para que al pulsar vaya al primer diálogo
 	if continue_button.pressed.is_connected(_on_continue_pressed):
 		continue_button.pressed.disconnect(_on_continue_pressed)
 	continue_button.pressed.connect(_start_dialogue)
 
 func _start_dialogue():
+	# Reestablecemos el botón para el flujo normal
 	continue_button.text = "Continuar"
 	continue_button.pressed.disconnect(_start_dialogue)
 	continue_button.pressed.connect(_on_continue_pressed)
 	show_current_dialogue()
+
+func show_transition_screen():
+	hide_all_characters()
+	dialogue_text.text = "[center][i]Fin Capítulo 1[/i]\nAmor de Madre"
+	name_label.text = ""
+	continue_button.text = "Siguiente escena"
+	continue_button.pressed.disconnect(_on_continue_pressed)
+	continue_button.pressed.connect(_on_next_scene)
 
 # --- LÓGICA DE DIÁLOGO ---
 
@@ -116,7 +124,6 @@ func update_character_sprites(character_name: String, is_thought: bool):
 	if character_name == "Narrador":
 		return
 
-	# AISLAMIENTO: Si es pensamiento, ocultar a la desconocida y mostrar solo a la protagonista
 	if is_thought:
 		hide_character(right_character)
 		show_character(left_character)
@@ -127,13 +134,17 @@ func update_character_sprites(character_name: String, is_thought: bool):
 	
 	var char_side = character_positions.get(character_name, "right")
 	var sprite_path = character_sprites[character_name]
+	var texture = null
+	
+	if ResourceLoader.exists(sprite_path):
+		texture = load(sprite_path)
 	
 	if char_side == "left":
-		left_character.texture = load(sprite_path)
+		if texture: left_character.texture = texture
 		show_character(left_character)
 		dim_character(right_character)
 	else:
-		right_character.texture = load(sprite_path)
+		if texture: right_character.texture = texture
 		show_character(right_character)
 		dim_character(left_character)
 
@@ -158,18 +169,10 @@ func _on_continue_pressed():
 	show_current_dialogue()
 
 func end_prologo():
-	hide_all_characters()
 	show_transition_screen()
 
-func show_transition_screen():
-	dialogue_text.text = "[center][i]Fin del Prólogo[/i]\nMáscaras de Duelo"
-	name_label.text = ""
-	continue_button.text = "Siguiente escena"
-	continue_button.pressed.disconnect(_on_continue_pressed)
-	continue_button.pressed.connect(_on_next_scene)
-
 func _on_next_scene():
-	Transition.change_scene("res://scenes/gameplay/mom_scene.tscn")
+	Transition.change_scene("res://scenes/main_menu.tscn")
 	
 func _process(_delta):
 	# 2. Monitorear la posición para crear el bucle
