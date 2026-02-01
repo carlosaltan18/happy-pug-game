@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cypp0i0doxvq1" path="res://scenes/gameplay/main_game.gd" id="1_afi3u"]
 [ext_resource type="Texture2D" uid="uid://bnbfavu86p847" path="res://funeraria.jpg" id="2_ysiqp"]
+[ext_resource type="AudioStream" uid="uid://cco055l6jomh8" path="res://assets/musica/GameJamIdeas Edit 1 Export 2.mp3" id="3_i6iuv"]
 
 [node name="MainGame" type="Control" unique_id=829127000]
 layout_mode = 3
@@ -113,3 +114,7 @@ offset_right = 1174.0
 offset_bottom = 174.0
 text = "Continuar
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=774746863]
+stream = ExtResource("3_i6iuv")
+autoplay = true

@@ -15,5 +15,5 @@ dest_files=["res://.godot/imported/GameJamIdeas Edit 1 Export 2.mp3-e429ce384c57
 loop=false
 loop_offset=0
 bpm=0
-beat_count=0
+beat_count=5
 bar_beats=4
