@@ -1,25 +1,20 @@
 extends Control
 
-# Referencias a los nodos de la UI
 @onready var dialogue_text = $DialogueContainer/DialogueBox/DialogueText
 @onready var name_label = $DialogueContainer/DialogueBox/NameLabel
 @onready var continue_button = $DialogueContainer/DialogueBox/ContinueButton
 
-# Referencias a los personajes
 @onready var left_character = $CharacterContainer/Lagrima
 @onready var right_character = $CharacterContainer/Vecina
 
 @onready var audio_player = $AudioStreamPlayer 
 
-# Variables del sistema de diálogos
 var current_dialogue_index = 0
 var dialogues = []
 
-# Configuración de Audio
 var music_loop_start = 0.0
 var music_loop_end = 45.0 
 
-# Colores para cada personaje
 var character_colors = {
 	"Protagonista": Color(1.0, 0.8, 0.6),
 	"Vecina": Color(0.6, 1.0, 0.8),
@@ -27,7 +22,6 @@ var character_colors = {
 	"Pensamiento": Color(0.7, 0.7, 1.0)
 }
 
-# Rutas de Sprites (Asegúrate de que estas rutas sean 100% correctas)
 var character_sprites = {
 	"Protagonista": "res://assets/personajes/lagrima.png",
 	"Vecina": "res://assets/personajes/vecina.png"
@@ -39,12 +33,10 @@ func _ready():
 		
 	Transition.fade_in()
 	
-	# 1. Cargamos directamente. Si la ruta está mal, Godot avisará.
-	# Si la ruta es correcta, load() funcionará siempre en el exportado.
+	
 	left_character.texture = load(character_sprites["Protagonista"])
 	right_character.texture = load(character_sprites["Vecina"])
 	
-	# 2. Forzamos la opacidad a 0 al inicio (como ya tenías)
 	left_character.modulate.a = 0
 	right_character.modulate.a = 0
 	
@@ -82,13 +74,11 @@ func load_escena_vecina():
 	{"character": "Protagonista", "text": "Yo no.", "is_thought": true}
 ]
 
-# --- FLUJO DE PANTALLAS ---
 
 func show_intro_screen():
 	name_label.text = ""
 	dialogue_text.text = "[center][i]Capítulo 2[/i]\nEl 'Luto' de la Vecina"
 	continue_button.text = "Empezar"
-	# Desconectar cualquier señal previa para evitar clics dobles
 	if continue_button.pressed.is_connected(_on_continue_pressed):
 		continue_button.pressed.disconnect(_on_continue_pressed)
 	if continue_button.pressed.is_connected(_start_dialogue):
@@ -110,7 +100,6 @@ func show_current_dialogue():
 	var current = dialogues[current_dialogue_index]
 	update_character_visuals(current["character"], current["is_thought"])
 	
-	# Configurar el texto y nombre
 	if current["character"] == "Narrador":
 		name_label.text = ""
 		dialogue_text.text = "[center][i]" + current["text"] + "[/i][/center]"
@@ -128,7 +117,6 @@ func _on_continue_pressed():
 	current_dialogue_index += 1
 	show_current_dialogue()
 
-# --- LÓGICA VISUAL ---
 
 func update_character_visuals(character_name: String, is_thought: bool):
 	if character_name == "Narrador":
@@ -136,7 +124,6 @@ func update_character_visuals(character_name: String, is_thought: bool):
 		return
 
 	if is_thought:
-		# En pensamientos solo se ve a la protagonista iluminada
 		show_character(left_character)
 		hide_character(right_character)
 	else:
@@ -163,7 +150,6 @@ func hide_all_characters():
 	hide_character(left_character)
 	hide_character(right_character)
 
-# --- FINALIZACIÓN ---
 
 func end_escena():
 	hide_all_characters()

@@ -1,34 +1,28 @@
 extends Control
 
-# Referencias a la UI
 @onready var dialogue_text = $DialogueContainer/DialogueBox/DialogueText
 @onready var name_label = $DialogueContainer/DialogueBox/NameLabel
 @onready var continue_button = $DialogueContainer/DialogueBox/ContinueButton
 
-# Referencias a los personajes
 @onready var protagonist = $CharacterContainer/Lagrima
 @onready var npc_1 = $CharacterContainer/Psicologo
 @onready var npc_2 = $CharacterContainer/Mama
 @onready var npc_3 = $CharacterContainer/Vecinita
 
-# Referencias de audio
 @onready var audio_player = $AudioStreamPlayer 
-@onready var sfx_player = $SFXPlayer  # Para efectos de sonido
+@onready var sfx_player = $SFXPlayer 
 
 var current_dialogue_index = 0
 var dialogues = []
 
-# Configuración de Audio
 var music_loop_start = 3.0
 var music_loop_end = 70.0
 
-# Efectos de sonido
 var sound_effects = {
 	"telefono": "res://assets/musica/telefonoRing.mp3",
 	"dialogo": "res://assets/musica/cortoon-voice.mp3"
 }
 
-# Sprites de personajes
 var character_sprites = {
 	"Protagonista": "res://assets/personajes/lagrima.png",
 	"Protagonista_Rota": "res://assets/personajes/lagrima.png",
@@ -37,7 +31,6 @@ var character_sprites = {
 	"Vecina": "res://assets/personajes/vecainSN.png"
 }
 
-# Colores para cada personaje
 var character_colors = {
 	"Protagonista": Color(1.0, 0.8, 0.6),
 	"Emergencias": Color(0.4, 0.8, 0.4),
@@ -53,10 +46,8 @@ func _ready():
 	
 	Transition.fade_in()
 	
-	# Cargar sprites iniciales
 	load_character_sprites()
 	
-	# Estado inicial: Nadie visible
 	hide_everybody_instantly()
 	
 	load_escena_final()
@@ -68,7 +59,6 @@ func _process(_delta):
 			audio_player.seek(music_loop_start)
 
 func load_character_sprites():
-	# Cargar sprites para cada personaje
 	if ResourceLoader.exists(character_sprites["Protagonista"]):
 		protagonist.texture = load(character_sprites["Protagonista"])
 	
@@ -117,7 +107,6 @@ func show_current_dialogue():
 	
 	var d = dialogues[current_dialogue_index]
 	
-	# Aplicar color al nombre según el personaje
 	if character_colors.has(d["name"]):
 		name_label.add_theme_color_override("font_color", character_colors[d["name"]])
 	else:
@@ -126,11 +115,9 @@ func show_current_dialogue():
 	name_label.text = d["name"]
 	dialogue_text.text = d["text"]
 	
-	# Reproducir efecto de sonido si existe
 	if d.has("sfx"):
 		play_sound_effect(d["sfx"])
 	else:
-		# Sonido sutil al hablar (excepto para Narrador y pausas)
 		if d["name"] != "Narrador" and d["text"] != "...":
 			play_sound_effect("dialogo")
 	
@@ -164,44 +151,34 @@ func play_sound_effect(effect_name: String):
 		print("SFX no encontrado: " + sfx_path)
 
 func show_only_protagonist():
-	# Solo la protagonista visible
 	show_node(protagonist)
 	hide_node(npc_1)
 	hide_node(npc_2)
 	hide_node(npc_3)
 
 func start_fade_to_black():
-	# Oculta personajes gradualmente
 	hide_all_characters()
 
 func complete_fade_to_black():
-	# Pantalla completamente oscura
 	hide_all_characters()
 	name_label.text = ""
 
 func show_final_revelation():
-	# 1. Cambiar textura de la protagonista a máscara rota
 	if ResourceLoader.exists(character_sprites["Protagonista_Rota"]):
 		protagonist.texture = load(character_sprites["Protagonista_Rota"])
 	
-	# 2. Aparecen todos juntos con un efecto suave y escalonado
 	var tween = create_tween()
 	
-	# Primero la protagonista
 	tween.tween_property(protagonist, "modulate:a", 1.0, 1.0)
 	
-	# Luego los NPCs con un ligero delay
 	tween.tween_property(npc_1, "modulate:a", 1.0, 1.5).set_delay(0.5)
 	tween.parallel().tween_property(npc_2, "modulate:a", 1.0, 1.5).set_delay(0.7)
 	tween.parallel().tween_property(npc_3, "modulate:a", 1.0, 1.5).set_delay(0.9)
 	
-	# 3. Esperar a que termine la animación
 	await tween.finished
 	
-	# 4. Pequeña pausa dramática antes del texto final
 	await get_tree().create_timer(1.0).timeout
 
-# --- Funciones de visibilidad ---
 
 func show_node(node):
 	var tween = create_tween()
@@ -224,7 +201,6 @@ func hide_everybody_instantly():
 	npc_2.modulate.a = 0
 	npc_3.modulate.a = 0
 
-# --- Lógica de botones ---
 
 func _on_continue_pressed():
 	current_dialogue_index += 1
@@ -244,10 +220,8 @@ func _start_dialogue():
 	show_current_dialogue()
 
 func _on_next_scene():
-	# Fade out final
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 2.0)
 	await tween.finished
 	
-	# Ir a créditos
 	Transition.change_scene("res://scenes/gameplay/BrokenMask.tscn")

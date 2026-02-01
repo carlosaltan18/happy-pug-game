@@ -10,33 +10,26 @@ var music_loop_end = 160.0
 # Velocidad de scroll (píxeles por segundo)
 var scroll_speed = 50.0
 
-# Posición inicial y final
-var start_y = 1080.0  # Empieza abajo de la pantalla
-var end_y = -3000.0   # Termina arriba de la pantalla (fuera de vista)
+var start_y = 1080.0  
+var end_y = -3000.0   
 
-# Variable de tiempo
 var is_scrolling = false
 
 func _ready():
 	if audio_player:
 			audio_player.play(music_loop_start)	
-	# Fade in
 	background.modulate.a = 0
 	var tween = create_tween()
 	tween.tween_property(background, "modulate:a", 1.0, 1.0)
 	
-	# Conectar botón de saltar
 	skip_button.pressed.connect(_on_skip_pressed)
 	
-	# Cargar el texto de los créditos
 	load_credits_text()
 	
-	# Esperar 2 segundos y empezar scroll
 	await get_tree().create_timer(2.0).timeout
 	start_scroll()
 
 func load_credits_text():
-	# Asegúrate de que credits_text sea un RichTextLabel para que el BBCode funcione
 	credits_text.bbcode_enabled = true 
 	
 	credits_text.text = """
@@ -113,12 +106,9 @@ Todos los derechos reservados[/font_size]
 
 func start_scroll():
 	is_scrolling = true
-	
-	# Calcular duración basada en la distancia y velocidad
 	var distance = start_y - end_y
 	var duration = distance / scroll_speed
 	
-	# Crear tween para el scroll
 	var tween = create_tween()
 	tween.tween_property(credits_text, "position:y", end_y, duration)
 	tween.tween_callback(_on_credits_finished)
@@ -135,16 +125,12 @@ func _on_skip_pressed():
 	return_to_menu()
 
 func return_to_menu():
-	# Fade out
 	var tween = create_tween()
 	tween.tween_property(background, "modulate:a", 0.0, 1.0)
 	await tween.finished
-	
-	# Cambiar al menú
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _process(delta):
-	# Permitir saltar con ESC o SPACE
 	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("ui_accept"):
 		if is_scrolling:
 			_on_skip_pressed()

@@ -1,24 +1,19 @@
 extends Control
 
-# Referencias a los nodos de la UI
 @onready var dialogue_text = $DialogueContainer/DialogueBox/DialogueText
 @onready var name_label = $DialogueContainer/DialogueBox/NameLabel
 @onready var continue_button = $DialogueContainer/DialogueBox/ContinueButton
 
-# Referencias a los personajes
 @onready var left_character = $CharacterContainer/Lagrima
 @onready var right_character = $CharacterContainer/PersonajeNpc
 
-# Referencia al Audio
 @onready var audio_player = $AudioStreamPlayer 
 var loop_start = 3.0
 var loop_end = 50.0
 
-# Variables del sistema de diálogos
 var current_dialogue_index = 0
 var dialogues = []
 
-# Colores para cada personaje
 var character_colors = {
 	"Protagonista": Color(1.0, 0.8, 0.6),
 	"Desconocida": Color(0.8, 0.8, 0.8),
@@ -26,32 +21,28 @@ var character_colors = {
 	"Pensamiento": Color(0.7, 0.7, 1.0)
 }
 
-# Sprites de personajes
 var character_sprites = {
 	"Protagonista": "res://assets/personajes/lagrima.png",
 	"Desconocida": "res://assets/personajes/npc.png"
 }
 
-# Posiciones de personajes
 var character_positions = {
 	"Protagonista": "left",
 	"Desconocida": "right"
 }
 
 func _ready():
-	# 1. Iniciar audio en el segundo 5
 	if audio_player:
 		audio_player.play(loop_start)
 	
 	Transition.fade_in()
 	continue_button.pressed.connect(_on_continue_pressed)
 	
-	# Ocultar personajes al inicio
 	left_character.modulate.a = 0
 	right_character.modulate.a = 0
 	
 	load_prologo()
-	show_intro_screen() # Inicia con el título
+	show_intro_screen() 
 
 func load_prologo():
 	dialogues = [
@@ -69,7 +60,6 @@ func load_prologo():
 	]
 	current_dialogue_index = 0
 
-# --- PANTALLAS DE TÍTULO ---
 
 func show_intro_screen():
 	name_label.text = ""
@@ -84,8 +74,6 @@ func _start_dialogue():
 	continue_button.pressed.disconnect(_start_dialogue)
 	continue_button.pressed.connect(_on_continue_pressed)
 	show_current_dialogue()
-
-# --- LÓGICA DE DIÁLOGO ---
 
 func show_current_dialogue():
 	if current_dialogue_index >= dialogues.size():
@@ -116,7 +104,6 @@ func update_character_sprites(character_name: String, is_thought: bool):
 	if character_name == "Narrador":
 		return
 
-	# AISLAMIENTO: Si es pensamiento, ocultar a la desconocida y mostrar solo a la protagonista
 	if is_thought:
 		hide_character(right_character)
 		show_character(left_character)
@@ -172,8 +159,6 @@ func _on_next_scene():
 	Transition.change_scene("res://scenes/gameplay/mom_scene.tscn")
 	
 func _process(_delta):
-	# 2. Monitorear la posición para crear el bucle
 	if audio_player and audio_player.playing:
-		# Si la canción llega al segundo 10, vuelve al segundo 5
 		if audio_player.get_playback_position() >= loop_end:
 			audio_player.seek(loop_start)

@@ -1,11 +1,9 @@
 extends Control
 
-# Referencias a los nodos de la UI
 @onready var dialogue_text = $DialogueContainer/DialogueBox/DialogueText
 @onready var name_label = $DialogueContainer/DialogueBox/NameLabel
 @onready var continue_button = $DialogueContainer/DialogueBox/ContinueButton
 
-# Referencias a los personajes
 @onready var left_character = $CharacterContainer/Lagrima
 @onready var right_character = $CharacterContainer/Madre
 
@@ -13,11 +11,9 @@ extends Control
 var loop_start = 4.0
 var loop_end = 50.0
 
-# Variables del sistema de diálogos
 var current_dialogue_index = 0
 var dialogues = []
 
-# Colores para cada personaje
 var character_colors = {
 	"Protagonista": Color(1.0, 0.8, 0.6),
 	"Mamá": Color(1.0, 0.7, 0.7),
@@ -25,13 +21,11 @@ var character_colors = {
 	"Pensamiento": Color(0.7, 0.7, 1.0)
 }
 
-# Sprites de personajes
 var character_sprites = {
 	"Protagonista": "res://assets/personajes/lagrima.png",
 	"Mamá": "res://assets/personajes/madre.png"
 }
 
-# Posiciones de personajes
 var character_positions = {
 	"Protagonista": "left",
 	"Mamá": "right"
@@ -89,19 +83,16 @@ func load_prologo():
 ]
 	current_dialogue_index = 0
 
-# --- PANTALLAS DE TÍTULO ---
 
 func show_intro_screen():
 	name_label.text = ""
 	dialogue_text.text = "[center][i]Inicio Capítulo 1[/i]\nAmor de Madre"
 	continue_button.text = "Empezar"
-	# Cambiamos la conexión para que al pulsar vaya al primer diálogo
 	if continue_button.pressed.is_connected(_on_continue_pressed):
 		continue_button.pressed.disconnect(_on_continue_pressed)
 	continue_button.pressed.connect(_start_dialogue)
 
 func _start_dialogue():
-	# Reestablecemos el botón para el flujo normal
 	continue_button.text = "Continuar"
 	continue_button.pressed.disconnect(_start_dialogue)
 	continue_button.pressed.connect(_on_continue_pressed)
@@ -115,7 +106,6 @@ func show_transition_screen():
 	continue_button.pressed.disconnect(_on_continue_pressed)
 	continue_button.pressed.connect(_on_next_scene)
 
-# --- LÓGICA DE DIÁLOGO ---
 
 func show_current_dialogue():
 	if current_dialogue_index >= dialogues.size():
@@ -197,8 +187,6 @@ func _on_next_scene():
 	Transition.change_scene("res://scenes/gameplay/vecina-scene.tscn")
 	
 func _process(_delta):
-	# 2. Monitorear la posición para crear el bucle
 	if audio_player and audio_player.playing:
-		# Si la canción llega al segundo 10, vuelve al segundo 5
 		if audio_player.get_playback_position() >= loop_end:
 			audio_player.seek(loop_start)
