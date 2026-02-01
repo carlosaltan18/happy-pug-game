@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://5uvq0nh8k8lm"]
+
+[ext_resource type="Texture2D" uid="uid://bg4iltj3d2hc" path="res://assets/pasillo.jpg" id="1_72j6y"]
+[ext_resource type="Script" uid="uid://b8fgbprtiqa38" path="res://scenes/gameplay/vecina_scene.gd" id="1_lvhvu"]
+[ext_resource type="AudioStream" uid="uid://dp26rg58ym0s3" path="res://assets/musica/Pasillo.mp3" id="2_lvhvu"]
+
+[node name="Control" type="Control" unique_id=1253551919]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lvhvu")
+
+[node name="Background" type="ColorRect" parent="." unique_id=140768641]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1640040662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_72j6y")
+expand_mode = 1
+
+[node name="CharacterContainer" type="Control" parent="." unique_id=1094289435]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lagrima" type="TextureRect" parent="CharacterContainer" unique_id=1104848282]
+modulate = Color(0.9098039, 1, 1, 0)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 490.0
+offset_top = 127.0
+offset_right = 590.0
+offset_bottom = 227.0
+scale = Vector2(0.3, 0.3)
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Vecina" type="TextureRect" parent="CharacterContainer" unique_id=287092508]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 755.0
+offset_top = 120.0
+offset_right = 855.0
+offset_bottom = 220.0
+scale = Vector2(0.3, 0.3)
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="DialogueContainer" type="Control" parent="." unique_id=262758549]
+custom_minimum_size = Vector2(0, 200)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogueBox" type="Panel" parent="DialogueContainer" unique_id=1535038573]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="DialogueContainer/DialogueBox" unique_id=733738500]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 174.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 25
+text = "Protagonista"
+
+[node name="DialogueText" type="RichTextLabel" parent="DialogueContainer/DialogueBox" unique_id=742167901]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 69.0
+offset_right = 1900.0
+offset_bottom = 169.0
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Este es el comienzo de la historia..."
+
+[node name="ContinueButton" type="Button" parent="DialogueContainer/DialogueBox" unique_id=1575365333]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1044.0
+offset_top = 134.0
+offset_right = 1174.0
+offset_bottom = 174.0
+text = "Continuar
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=470446134]
+stream = ExtResource("2_lvhvu")

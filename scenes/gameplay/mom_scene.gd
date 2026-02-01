@@ -172,7 +172,7 @@ func end_prologo():
 	show_transition_screen()
 
 func _on_next_scene():
-	Transition.change_scene("res://scenes/main_menu.tscn")
+	Transition.change_scene("res://scenes/gameplay/vecina-scene.tscn")
 	
 func _process(_delta):
 	# 2. Monitorear la posición para crear el bucle

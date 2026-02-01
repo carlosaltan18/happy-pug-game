@@ -83,31 +83,31 @@ func load_character_sprites():
 
 func load_escena_final():
 	dialogues = [
-		{"name": "Protagonista", "text": "Odio que me traten así. Como si fuera un pobre perro atropellado.", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "¡Ni siquiera les importa cómo me siento!", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "Si les importara, no me tratarían así, ocultando lo que son, lo que realmente quieren decir.", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "Solo dicen que están para mí para quedar bien... ¡TODOS SON UNOS FALSOS!", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "Yo sé, estoy segura, que ninguno de ellos dice lo que en verdad quiere decir...", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "...justo como yo.", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "...", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "¿Por qué no se dan cuenta que miento?", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "¿Por qué no se dan cuenta que estoy mal?", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "¿Por qué nadie se da cuenta que necesito ayuda?", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "...ayuda...", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "Ayuda", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "AYUDA", "state": "solo_ella"},
-		{"name": "Narrador", "text": "[sfx teléfono]", "state": "oscurecer", "sfx": "telefono"},
-		{"name": "Emergencias", "text": "Servicio de emergencia mental y psicológica. ¿Está usted en una emergencia y requiere de ayuda inmediata?", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "...", "state": "solo_ella"},
-		{"name": "Emergencias", "text": "¿Hola?, ¿se equivocó de número?", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "... ... hola. Sí... yo... necesito ayuda.", "state": "solo_ella"},
-		{"name": "Emergencias", "text": "Hola, me alegra oírte. Claro, con mucho gusto te podemos ayudar; pero antes, ¿hay alguna persona o ser querido que pueda en este momento estar físicamente a tu lado? Eso ayudaría mucho.", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "...", "state": "solo_ella"},
-		{"name": "Emergencias", "text": "¿No? Claro, no hay problema-", "state": "solo_ella"},
-		{"name": "Protagonista", "text": "De hecho, sí, sí lo hay.", "state": "preparar_revelacion"},
-		{"name": "Narrador", "text": "[Se oscurece la pantalla...]", "state": "oscurecer_completo"},
-		{"name": "Protagonista", "text": "De ellos... ninguno de ellos tenía máscara... siempre fui yo.", "state": "revelacion_final"}
-	]
+	{"name": "Protagonista", "text": "Odio que me traten así.\nComo si fuera un pobre perro atropellado.", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "¡Ni siquiera les importa cómo me siento!", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "Si les importara, no me tratarían así, ocultando lo que son,\nlo que realmente quieren decir.", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "Solo dicen que están para mí para quedar bien...\n¡TODOS SON UNOS FALSOS!", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "Yo sé, estoy segura, que ninguno de ellos\ndice lo que en verdad quiere decir...", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "...justo como yo.", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "...", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "¿Por qué no se dan cuenta que miento?", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "¿Por qué no se dan cuenta que estoy mal?", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "¿Por qué nadie se da cuenta\nque necesito ayuda?", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "...ayuda...", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "Ayuda", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "AYUDA", "state": "solo_ella"},
+	{"name": "Narrador", "text": "[sfx teléfono]", "state": "oscurecer", "sfx": "telefono"},
+	{"name": "Emergencias", "text": "Servicio de emergencia mental y psicológica.\n¿Está usted en una emergencia y requiere de ayuda inmediata?", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "...", "state": "solo_ella"},
+	{"name": "Emergencias", "text": "¿Hola?,\n¿se equivocó de número?", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "... ... hola.\nSí... yo... necesito ayuda.", "state": "solo_ella"},
+	{"name": "Emergencias", "text": "Hola, me alegra oírte. Claro, con mucho gusto te podemos ayudar;\npero antes, ¿hay alguna persona que pueda estar físicamente a tu lado?", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "...", "state": "solo_ella"},
+	{"name": "Emergencias", "text": "¿No? Claro, no hay problema-", "state": "solo_ella"},
+	{"name": "Protagonista", "text": "De hecho, sí,\nsí lo hay.", "state": "preparar_revelacion"},
+	{"name": "Narrador", "text": "[Se oscurece la pantalla...]", "state": "oscurecer_completo"},
+	{"name": "Protagonista", "text": "De ellos... ninguno de ellos tenía máscara...\nsiempre fui yo.", "state": "revelacion_final"}
+]
 	current_dialogue_index = 0
 
 func show_current_dialogue():
