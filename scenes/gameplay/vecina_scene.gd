@@ -34,19 +34,17 @@ var character_sprites = {
 }
 
 func _ready():
-	# Configuración inicial de audio
 	if audio_player:
 		audio_player.play(music_loop_start)
 		
 	Transition.fade_in()
 	
-	# Precargar las texturas en los nodos para que no aparezcan vacíos
-	if FileAccess.file_exists(character_sprites["Protagonista"]):
-		left_character.texture = load(character_sprites["Protagonista"])
-	if FileAccess.file_exists(character_sprites["Vecina"]):
-		right_character.texture = load(character_sprites["Vecina"])
+	# 1. Cargamos directamente. Si la ruta está mal, Godot avisará.
+	# Si la ruta es correcta, load() funcionará siempre en el exportado.
+	left_character.texture = load(character_sprites["Protagonista"])
+	right_character.texture = load(character_sprites["Vecina"])
 	
-	# Personajes invisibles al inicio
+	# 2. Forzamos la opacidad a 0 al inicio (como ya tenías)
 	left_character.modulate.a = 0
 	right_character.modulate.a = 0
 	
