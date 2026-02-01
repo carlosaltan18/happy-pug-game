@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cqmpnbf2b3iya"]
 
 [ext_resource type="Script" uid="uid://douq0s5p2h4i" path="res://scenes/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://bnbfavu86p847" path="res://funeraria.jpg" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bqkvr2g8tklbj" path="res://assets/funeraria-gemini.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://cco055l6jomh8" path="res://assets/musica/GameJamIdeas Edit 1 Export 2.mp3" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://b2oxgd40weir3" path="res://assets/personajes/mascaraDeDuelo.png" id="4_wu84c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
 bg_color = Color(0.2702219, 0.27022195, 0.27022177, 1)
@@ -27,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_l6cm7")
+texture = ExtResource("2_bqqt6")
 expand_mode = 1
 
 [node name="MenuContainer" type="VBoxContainer" parent="." unique_id=1013471399]
@@ -78,22 +79,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
 text = "Credits
 "
 
-[node name="TitleLabel" type="Label" parent="." unique_id=1094360798]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -508.0
-offset_top = 185.0
-offset_right = -76.0
-offset_bottom = 326.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.33720493, 0.28035998, 0.078496106, 1)
-theme_override_font_sizes/font_size = 50
-text = "Máscara de 
-Duelo"
-horizontal_alignment = 1
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=754463116]
 stream = ExtResource("3_bqqt6")
 autoplay = true
+
+[node name="MascaraDeDuelo" type="Sprite2D" parent="." unique_id=293895375]
+position = Vector2(596, 171)
+scale = Vector2(0.29437503, 0.276625)
+texture = ExtResource("4_wu84c")

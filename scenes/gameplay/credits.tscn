@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://0elixe4t8li3"]
+
+[ext_resource type="Script" uid="uid://dmbloalsfhj22" path="res://scenes/gameplay/credits.gd" id="1_uofio"]
+[ext_resource type="AudioStream" uid="uid://cco055l6jomh8" path="res://assets/musica/GameJamIdeas Edit 1 Export 2.mp3" id="2_vmxsq"]
+
+[node name="Credits" type="Control" unique_id=1529922777]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uofio")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1406191920]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.9764706)
+
+[node name="ScrollContainer" type="Control" parent="." unique_id=1902252571]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsText" type="RichTextLabel" parent="ScrollContainer" unique_id=2112495174]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 55.0
+offset_right = 1023.0
+offset_bottom = 556.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Creditos"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="SkipButton" type="Button" parent="." unique_id=407545235]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -161.0
+offset_top = 13.0
+offset_right = -11.0
+offset_bottom = 63.0
+grow_horizontal = 0
+text = "Saltar ►"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=806912414]
+stream = ExtResource("2_vmxsq")
