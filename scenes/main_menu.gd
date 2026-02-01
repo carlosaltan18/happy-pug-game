@@ -4,11 +4,12 @@ extends Control
 @onready var new_game_button = $MenuContainer/SpacerTop/ButtonsContainer/Start
 @onready var exit_button = $MenuContainer/SpacerTop/ButtonsContainer/Exit
 @onready var credits_button = $MenuContainer/SpacerTop/ButtonsContainer/Credits
-@onready var audio_player = $AudioStreamPlayer 
+@onready var audio_player = $AudioStreamPlayer
 
 var loop_start = 3.0
 var loop_end = 41.0
 func _ready():
+	
 	if audio_player:
 			audio_player.play(loop_start)
 	Transition.fade_in()

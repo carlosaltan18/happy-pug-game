@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dlvh3wyagnyf7"]
+
+[ext_resource type="Texture2D" uid="uid://cgfnadmv77xru" path="res://assets/secuencias/seq1.png" id="1_2h4j0"]
+[ext_resource type="Script" uid="uid://dxboxb668elih" path="res://scenes/gameplay/BrokenMask.gd" id="1_f438a"]
+[ext_resource type="AudioStream" uid="uid://cco055l6jomh8" path="res://assets/musica/GameJamIdeas Edit 1 Export 2.mp3" id="3_soj8k"]
+
+[node name="BrokenMask" type="Node2D" unique_id=1869749920]
+script = ExtResource("1_f438a")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=865606005]
+offset_right = 1206.0
+offset_bottom = 658.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=127719223]
+offset_left = 281.0
+offset_top = -40.0
+offset_right = 974.0
+offset_bottom = 643.0
+texture = ExtResource("1_2h4j0")
+expand_mode = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=644349067]
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1194222970]
+stream = ExtResource("3_soj8k")
